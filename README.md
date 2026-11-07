@@ -2,6 +2,11 @@
 
 An [Omarchy](https://omarchy.org/) shell plugin that shows your VPN status in the bar and lets you connect, disconnect or cancel NetworkManager VPN and WireGuard profiles from a keyboard-friendly panel.
 
+<p>
+  <img src="screenshots/disconnected.png" alt="VPN panel with three profiles, all disconnected" width="49%">
+  <img src="screenshots/connected.png" alt="VPN panel connected to a WireGuard profile" width="49%">
+</p>
+
 ## Features
 
 - Lock icon in the bar: closed when a VPN is up, open and dimmed when not. The tooltip lists active and connecting profiles.
