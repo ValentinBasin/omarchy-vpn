@@ -23,10 +23,11 @@ An [Omarchy](https://omarchy.org/) shell plugin that shows your VPN status in th
 | Package | Needed for | Stock Omarchy |
 |---|---|---|
 | `networkmanager` | everything | yes |
+| `libnotify` (`notify-send`) | connect/disconnect notifications | yes, as a dependency of other stock packages |
 | `networkmanager-openvpn`, `networkmanager-openconnect`, … | the VPN types you use | no |
 | `network-manager-applet` | the network editor (`nm-connection-editor`) and the password prompt (`nm-applet`) | no |
 
-The plugin itself only needs NetworkManager. Without `network-manager-applet`:
+The plugin itself only needs NetworkManager and `notify-send`. Without `network-manager-applet`:
 
 - the "Open network editor" entry is replaced by a hint, and profiles have to be created with `nmcli`;
 - **VPNs that ask for a password or OTP cannot connect**, because nothing answers NetworkManager's password request. Profiles with stored credentials, which includes typical WireGuard setups, are unaffected. The panel shows a specific hint when this happens.
@@ -45,7 +46,27 @@ and make sure `nm-applet` runs in your session, for example by adding it to your
 omarchy plugin add https://github.com/ValentinBasin/omarchy-vpn.git --enable
 ```
 
+Omarchy asks which bar section to use; `right` is the default. To move the icon afterwards, for example next to the keyboard layout:
+
+```bash
+omarchy bar move valentinbasin.vpn --section right --after omarchy.keyboard-layout
+```
+
 Update later with `omarchy plugin update valentinbasin.vpn`.
+
+## Removal
+
+```bash
+omarchy plugin remove valentinbasin.vpn
+```
+
+This takes the widget off the bar, together with any settings on its bar entry, and deletes the plugin folder `~/.config/omarchy/plugins/valentinbasin.vpn`. The plugin creates no other files, so nothing else is left behind.
+
+Your NetworkManager VPN profiles are not touched, and any packages you installed for the plugin, such as `network-manager-applet`, stay installed. Remove those with `omarchy pkg drop <package>` if you no longer need them.
+
+## What the plugin changes
+
+The plugin never writes to your configuration. It reads its settings from its entry in `~/.config/omarchy/shell.json`, which Omarchy adds when you enable the widget, and it changes VPN state only when you click a profile: it then runs `nmcli connection up` or `down` for that profile.
 
 ## Usage
 
