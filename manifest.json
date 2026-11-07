@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "bvm.vpn",
+  "name": "VPN",
+  "version": "1.3.0",
+  "author": "Valentin Basin",
+  "license": "MIT",
+  "description": "VPN and WireGuard connection status and quick connect/disconnect for NetworkManager profiles. Updates on NetworkManager events and is fully keyboard-navigable.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "Panel.qml"
+  },
+  "barWidget": {
+    "displayName": "VPN",
+    "description": "Shows active VPN and WireGuard connections and lets you connect, disconnect or cancel any NetworkManager VPN profile with the mouse or the keyboard (arrow keys/hjkl to move, Enter/Space to activate, Esc to close).",
+    "category": "Network",
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "refreshIntervalSec": 60
+    },
+    "schema": [
+      {
+        "key": "refreshIntervalSec",
+        "type": "integer",
+        "label": "Fallback refresh interval (seconds)",
+        "min": 10,
+        "max": 600,
+        "step": 1,
+        "defaultValue": 60
+      }
+    ]
+  }
+}
