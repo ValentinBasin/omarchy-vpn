@@ -213,7 +213,7 @@ Item {
       onRead: function(line) { monitorDebounce.restart() }
     }
     onExited: function(exitCode) {
-      console.warn("bvm.vpn: nmcli monitor exited with code " + exitCode + ", restarting in 5 s")
+      console.warn("valentinbasin.vpn: nmcli monitor exited with code " + exitCode + ", restarting in 5 s")
       monitorRestart.restart()
     }
   }

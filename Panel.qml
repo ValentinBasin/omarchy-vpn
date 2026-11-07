@@ -7,8 +7,8 @@ import qs.Commons
 
 Panel {
   id: root
-  moduleName: "bvm.vpn"
-  ipcTarget: "bvm.vpn"
+  moduleName: "valentinbasin.vpn"
+  ipcTarget: "valentinbasin.vpn"
   // Owning our own IpcHandler (below) so we can add a "refresh" method
   // alongside the standard open/close/show/hide/toggle.
   manageIpc: false

@@ -45,7 +45,7 @@ and make sure `nm-applet` runs in your session, for example by adding it to your
 omarchy plugin add https://github.com/ValentinBasin/omarchy-vpn.git --enable
 ```
 
-Update later with `omarchy plugin update bvm.vpn`.
+Update later with `omarchy plugin update valentinbasin.vpn`.
 
 ## Usage
 
@@ -61,8 +61,8 @@ In the panel: arrow keys or `hjkl` move, `Enter` or `Space` activates, `Esc` clo
 The widget can be driven over IPC:
 
 ```bash
-qs -p /usr/share/omarchy/shell ipc call bvm.vpn toggle   # open, close, show, hide, toggle
-qs -p /usr/share/omarchy/shell ipc call bvm.vpn refresh
+qs -p /usr/share/omarchy/shell ipc call valentinbasin.vpn toggle   # open, close, show, hide, toggle
+qs -p /usr/share/omarchy/shell ipc call valentinbasin.vpn refresh
 ```
 
 ## Settings
@@ -70,7 +70,7 @@ qs -p /usr/share/omarchy/shell ipc call bvm.vpn refresh
 In `~/.config/omarchy/shell.json`, on the widget's bar entry:
 
 ```json
-{ "id": "bvm.vpn", "refreshIntervalSec": 60 }
+{ "id": "valentinbasin.vpn", "refreshIntervalSec": 60 }
 ```
 
 | Key | Default | Range | Meaning |
@@ -88,7 +88,7 @@ The panel is built from Omarchy's internal UI components (`BarIconButton`, `Keyb
 ```bash
 node --test tests/                      # unit tests: nmcli parsing, escaping, translations
 omarchy plugin validate .               # manifest check used by `omarchy plugin add`
-rsync -a --delete --exclude .git ./ ~/.config/omarchy/plugins/bvm.vpn/   # try it live
+rsync -a --delete --exclude .git ./ ~/.config/omarchy/plugins/valentinbasin.vpn/   # try it live
 ```
 
 Saved changes under `~/.config/omarchy/plugins/` reload automatically. If they do not show up, run `omarchy restart shell`.
